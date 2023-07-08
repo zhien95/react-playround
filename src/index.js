@@ -3,11 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import App2 from "./App2";
+import Home from "./Home";
+import NavBar from "./NavBar";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const AppRoutes = () => <BrowserRouter>
+    <NavBar/>
+    <Routes>
+        <Route path={"/"} element={<Home/>}/>
+        <Route path={"/tab1"} element={<App/>}/>
+        <Route path={"/tab2"} element={<App2/>}/>
+    </Routes>
+</BrowserRouter>
+
+
 root.render(
   <React.StrictMode>
-    <App />
+      <AppRoutes/>
   </React.StrictMode>
 );
 
